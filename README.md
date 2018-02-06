@@ -1,7 +1,7 @@
-# React-Redux-Saga
+# React-Moducks
 
 ## About
-This is the sample project of [React](https://facebook.github.io/react/), [React-Redux](https://github.com/reactjs/react-redux) and  [Redux-Saga](https://github.com/redux-saga/redux-saga).
+This is the sample project of [React](https://facebook.github.io/react/), [Moducks](https://github.com/moducks/moducks).
 
 ## Requirements
 
