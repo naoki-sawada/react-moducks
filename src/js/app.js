@@ -1,11 +1,12 @@
-import Main from './components/Main';
 import { Provider } from 'react-redux';
-import configureStore from './store';
-import { initial } from './reducers';
+import createStore from '~/store';
+import Main from './components/Main';
+
+const store = createStore({});
 
 ReactDOM.render(
-  <Provider store={configureStore(initial)}>
+  <Provider store={store}>
     <Main />
   </Provider>,
-  document.getElementById('main')
+  document.getElementById('main'),
 );

@@ -1,7 +1,6 @@
-import styles from './Test.css';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { testIncrement, testDecrement, testClear } from 'actions';
+import styles from './Test.css';
+import { testIncrement, testDecrement, testClear } from '~/modules/test';
 
 @connect(state => ({
   count: state.test.counter,

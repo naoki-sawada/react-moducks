@@ -7,12 +7,12 @@ module.exports = {
   output: {
     path: __dirname + '/www/js',
     publicPath: '/www/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   resolve: {
     modules: [
       path.join(__dirname, "src/js"),
-      "node_modules"
+      "node_modules",
     ],
     extensions: ['.js'],
   },
@@ -23,34 +23,34 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: "babel-loader",
-        }
+        },
       },
       {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
             fallback: 'style-loader',
-            use: 'css-loader?modules,localIdentName="[name]-[local]-[hash:base64:6]"'
+            use: 'css-loader?modules,localIdentName="[name]-[local]-[hash:base64:6]"',
         }),
       },
       {
         test: /\.(jpg|png|gif)$/,
-        use: 'file-loader'
+        use: 'file-loader',
       },
       {
         test: /\.(woff|woff2|eot|ttf|svg)$/,
         use: {
           loader: 'url-loader',
           options: {
-            limit: 100000
-          }
-        }
-      }
-    ]
+            limit: 100000,
+          },
+        },
+      },
+    ],
   },
   plugins: [
     new ExtractTextPlugin({
       filename: '../assets/css/style.css',
-      allChunks: true
+      allChunks: true,
     }),
     new webpack.ProvidePlugin({
       React: 'react',
@@ -58,7 +58,7 @@ module.exports = {
       CSSModules: 'react-css-modules',
     }),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
+      'process.env.NODE_ENV': JSON.stringify('production'),
     }),
     new webpack.optimize.UglifyJsPlugin({
       comments: false,
