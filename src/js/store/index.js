@@ -1,19 +1,19 @@
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import logger from 'redux-logger';
-import reducer from 'reducers';
-import rootSaga from 'sagas';
+import reducers from '~/reducers';
+import sagas from '~/sagas';
 
 export default function configureStore(initialState) {
   const sagaMiddleware = createSagaMiddleware();
   const store = createStore(
-    reducer,
+    reducers,
     initialState,
     applyMiddleware(
       sagaMiddleware,
-      logger
-    )
+      logger,
+    ),
   );
-  sagaMiddleware.run(rootSaga);
+  sagaMiddleware.run(function* () { yield sagas; });
   return store;
 };
