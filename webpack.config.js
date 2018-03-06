@@ -20,7 +20,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: /(node_modules)/,
         use: {
           loader: "babel-loader",
         },
@@ -28,8 +28,8 @@ module.exports = {
       {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
-            fallback: 'style-loader',
-            use: 'css-loader?modules,localIdentName="[name]-[local]-[hash:base64:6]"',
+          fallback: 'style-loader',
+          use: 'css-loader?modules,localIdentName="[name]-[local]-[hash:base64:6]"',
         }),
       },
       {
