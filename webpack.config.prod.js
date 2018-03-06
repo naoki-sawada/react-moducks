@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   entry: __dirname + '/src/js/app.js',
@@ -20,7 +21,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: /(node_modules)/,
         use: {
           loader: "babel-loader",
         },
@@ -60,11 +61,12 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      comments: false,
-      compress: {
-        drop_console: true,
+    new UglifyJsPlugin({
+      uglifyOptions: {
+        compress: {
+          drop_console: true,
+        },
       },
     }),
-  ]
+  ],
 }
