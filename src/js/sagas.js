@@ -1,6 +1,6 @@
-import { flattenSagas } from 'moducks';
-import { sagas as test } from '~/modules/test';
+import moducks from './modules/moducks';
+import { sagas as test } from './modules/test';
 
-export default flattenSagas({
+export default moducks.util.flattenSagas({
   test,
 });
