@@ -1,14 +1,19 @@
+import React from 'react';
+import CSSModules from 'react-css-modules';
 import { connect } from 'react-redux';
-import styles from './Test.css';
 import { testIncrement, testDecrement, testClear } from '~/modules/test';
+import styles from './Test.css';
 
-@connect(state => ({
-  count: state.test.counter,
-}), {
-  testIncrement,
-  testDecrement,
-  testClear,
-})
+@connect(
+  state => ({
+    count: state.test.counter,
+  }),
+  {
+    testIncrement,
+    testDecrement,
+    testClear,
+  },
+)
 @CSSModules(styles)
 export default class Test extends React.Component {
   constructor(props) {

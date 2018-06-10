@@ -53,11 +53,11 @@ module.exports = {
       filename: '../assets/css/style.css',
       allChunks: true,
     }),
-    new webpack.ProvidePlugin({
-      React: 'react',
-      ReactDOM: 'react-dom',
-      CSSModules: 'react-css-modules',
-    }),
+    // new webpack.ProvidePlugin({
+    //   React: 'react',
+    //   ReactDOM: 'react-dom',
+    //   CSSModules: 'react-css-modules',
+    // }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
     }),
@@ -69,4 +69,4 @@ module.exports = {
       },
     }),
   ],
-}
+};

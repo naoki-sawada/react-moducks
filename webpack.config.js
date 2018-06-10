@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: __dirname + '/src/js/app.js',
@@ -22,7 +22,7 @@ module.exports = {
         test: /\.js$/,
         exclude: /(node_modules)/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
         },
       },
       {
@@ -52,10 +52,10 @@ module.exports = {
       filename: '../assets/css/style.css',
       allChunks: true,
     }),
-    new webpack.ProvidePlugin({
-      React: 'react',
-      ReactDOM: 'react-dom',
-      CSSModules: 'react-css-modules',
-    }),
-  ]
-}
+    // new webpack.ProvidePlugin({
+    //   React: 'react',
+    //   ReactDOM: 'react-dom',
+    //   CSSModules: 'react-css-modules',
+    // }),
+  ],
+};
