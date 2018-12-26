@@ -1,22 +1,24 @@
-const webpack = require('webpack');
 const path = require('path');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+const outputFolder = 'www';
+
 module.exports = {
-  entry: `${__dirname}/src/js/app.js`,
+  entry: path.join(__dirname, 'src/js/app.js'),
   output: {
-    path: `${__dirname}/www/js`,
-    publicPath: '/www/',
-    filename: 'bundle.js',
+    path: path.join(__dirname, outputFolder),
+    filename: 'js/bundle.js',
   },
   resolve: {
     modules: [path.join(__dirname, 'src/js'), 'node_modules'],
-    extensions: ['.js'],
+    extensions: ['.js', '.jsx'],
   },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /(\.js$|\.jsx$)/,
         exclude: /(node_modules)/,
         use: {
           loader: 'babel-loader',
@@ -46,6 +48,11 @@ module.exports = {
     ],
   },
   plugins: [
+    new CleanWebpackPlugin([outputFolder]),
+    new CopyWebpackPlugin(
+      [{ from: 'src/css', to: 'css' }, { from: 'src/index.html', to: '.' }],
+      { debug: true },
+    ),
     new ExtractTextPlugin({
       filename: '../assets/css/style.css',
       allChunks: true,
