@@ -48,11 +48,11 @@ module.exports = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin([outputFolder]),
-    new CopyWebpackPlugin(
-      [{ from: 'src/css', to: 'css' }, { from: 'src/index.html', to: '.' }],
-      { debug: true },
-    ),
+    new CleanWebpackPlugin(),
+    new CopyWebpackPlugin([
+      { from: 'src/css', to: 'css' },
+      { from: 'src/index.html', to: '.' },
+    ]),
     new ExtractTextPlugin({
       filename: './css/style.css',
       allChunks: true,
